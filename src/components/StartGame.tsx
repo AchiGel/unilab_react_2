@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StartGameContainer = styled.div`
+export const StartGameContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -8,7 +8,7 @@ const StartGameContainer = styled.div`
   align-items: center;
 `;
 
-const StartGameContainerTitle = styled.h1`
+export const StartGameContainerTitle = styled.h1`
   color: #eff9f3;
   font-family: "Noto Sans";
   font-size: 32px;
@@ -17,7 +17,7 @@ const StartGameContainerTitle = styled.h1`
   line-height: normal;
 `;
 
-const StartGameContainerPara = styled.p`
+export const StartGameContainerPara = styled.p`
   color: #eff9f3;
   text-align: center;
   font-family: "Noto Sans";
@@ -27,7 +27,7 @@ const StartGameContainerPara = styled.p`
   line-height: normal;
 `;
 
-const StartGameContainerButton = styled.button`
+export const StartGameContainerButton = styled.button`
   border: none;
   outline: none;
   padding: 9px 20px;
@@ -44,7 +44,11 @@ const StartGameContainerButton = styled.button`
   line-height: normal;
 `;
 
-export default function StartGame() {
+export default function StartGame({
+  setGamePage,
+}: {
+  setGamePage: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <StartGameContainer>
       <StartGameContainerTitle>Start dog finder game</StartGameContainerTitle>
@@ -52,7 +56,9 @@ export default function StartGame() {
         You will have to choose an image of a dog from 5 total pictures, try to
         get the highest score
       </StartGameContainerPara>
-      <StartGameContainerButton>Start Game</StartGameContainerButton>
+      <StartGameContainerButton onClick={() => setGamePage("game")}>
+        Start Game
+      </StartGameContainerButton>
     </StartGameContainer>
   );
 }
